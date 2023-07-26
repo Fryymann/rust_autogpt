@@ -1,9 +1,9 @@
 #[warn(unused_variables)]
 
+mod m1_enums;
 // const OUR_COURSE: &str = "Rust with AutoGPT";
 
 fn main() {
-
     // println!("Welcome to this curse on {}", OUR_COURSE);
 
     // // Stack
@@ -37,7 +37,6 @@ fn main() {
     // *y = 15;
     // print!("x is {}", x);
 
-
     // let freezing_temp: f64 = -2.4;
     // print!("freezing temp is {}", freezing_temp);
 
@@ -46,7 +45,6 @@ fn main() {
 
     // let my_char: char = 'z';
     // println!("my_char is {}", my_char);
-
 
     // let emoji_char: char =  '😎';
 
@@ -73,11 +71,11 @@ fn main() {
 
     let a: u8 = 0b_1010_1010;
 
-    let b: u8 = 0b_0101_1010;
-    println!("a's value is {}", a);
+    let _b: u8 = 0b_0101_1010;
+    println!("a = {}", a);
     // println!("b's value is {}", b);
 
-    println!("a's in binary {:08b}", a);
+    // println!("a's in binary {:08b}", a);
     // println!("b's in binary {:08b}", b);
 
     // // Logic Gates
@@ -87,9 +85,12 @@ fn main() {
     // println!("NOT {:08b}", !a);
 
     // Bitwise Operations
-    println!("a << 1 {:08b}", a << 1);
+    // println!("a << 1 {:08b}", a << 1);
+    println!("a << 1 = {}", a << 1);
+    // println!("a >> 1 {:08b}", a >> 1);
+    println!("a >> 1 = {}", a >> 1);
 
-
-
+    println!("a << 2 = {}", a << 2);
+    println!("a >> 2 = {}", a >> 2);
 
 }
