@@ -2,7 +2,7 @@
 
 trait Attacker {
     fn choose_style(&self) -> String;
-    // fn choose_weapon(&self) -> String;
+    fn choose_weapon(&self) -> String;
 }
 
 
@@ -21,6 +21,14 @@ impl Attacker for Character {
             Character::Wizard => "tai chi".to_string(),
         }
     }
+
+    fn choose_weapon(&self) -> String {
+        match self {
+            Character::Warrior => "sword".to_string(),
+            Character::Archer => "nunchucks".to_string(),
+            Character::Wizard => "ki".to_string(),
+        }
+    }
 }
 
 
@@ -32,6 +40,7 @@ impl Attacker for Character {
     fn test_traits() {
         let my_character: Character = Character::Archer;
         let chosen_fighting_style: String = my_character.choose_style();
+        let chosen_weapon: String = my_character.choose_weapon();
 
         dbg!(chosen_fighting_style);
     }

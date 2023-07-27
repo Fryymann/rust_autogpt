@@ -16,15 +16,15 @@ impl User {
         self.email = String::from(new_email);
     }
 
-    // fn change_username(&mut self, new_username: &str) {
-    //     self.username = String::from(new_username);
-    // }
+    fn change_username(&mut self, new_username: &str) {
+        self.username = String::from(new_username);
+    }
 }
 
 
-fn change_username(user: &mut User, new_username: &str ) {
-    user.username = String::from(new_username);
-}
+// fn change_username(user: &mut User, new_username: &str ) {
+//     user.username = String::from(new_username);
+// }
 
 
 #[cfg(test)]
