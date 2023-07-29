@@ -1,10 +1,8 @@
 use ethers::types::Address;
-use std::str::FromStr;
+use std::{str::FromStr, convert};
 
 trait EthereumAddress {
-    fn convert_address(&self) -> Result<Address, &'static str> {
-
-    }
+    fn convert_address(&self) -> Result<Address, &'static str>;
 }
 
 
@@ -17,14 +15,25 @@ impl EthereumAddress for &str {
     }
 }
 
-fn get_ethereum_data<T>(address: T) {
+impl EthereumAddress for Address {
+    fn convert_address(&self) -> Result<Address, &'static str> {
+        Ok(*self) //? Dereference sef
+    }
+}
 
+fn get_ethereum_data<T: EthereumAddress>(address: T) -> Address {
+    let converted_address: Address = address.convert_address().unwrap();
+    converted_address
 }
 
 #[cfg(test)]
     use super::*;
 
     #[test]
-    fn test_polymorphism() {
-        dbg!("TEST");
+    fn test_poly() {
+        let address: Address = Address::from_str("0xa27CEF8aF2B6575903b676e5644657FAe96F491F")
+            .unwrap();
+
+        let new_addr: Address = get_ethereum_data("0xa27CEF8aF2B6575903b676e5644657FAe96F491F");
+        assert_eq!(address, Address::from_str("0xa27CEF8aF2B6575903b676e5644657FAe96F491F").unwrap())
     }
