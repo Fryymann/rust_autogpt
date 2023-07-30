@@ -21,6 +21,7 @@ impl EthereumAddress for Address {
     }
 }
 
+#[allow(dead_code, unused_variables)]
 fn get_ethereum_data<T: EthereumAddress>(address: T) -> Address {
     let converted_address: Address = address.convert_address().unwrap();
     converted_address
